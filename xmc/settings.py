@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'common.apps.CommonConfig'
 ]
 
 MIDDLEWARE = [
@@ -118,3 +120,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+AUTH_USER_MODEL = 'common.User'
