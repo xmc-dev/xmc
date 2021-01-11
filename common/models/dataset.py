@@ -10,6 +10,9 @@ class Dataset(models.Model):
     time_limit = models.DurationField()
     memory_limit = models.PositiveIntegerField("memory limit in bytes")
 
+    def __str__(self):
+        return self.name
+
 class TestCase(models.Model):
     input_data = models.TextField()
     output_data = models.TextField()

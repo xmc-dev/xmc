@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from .models import User, Dataset
+from .models import User, Dataset, TestCase
 from .forms import UserCreationForm, UserChangeForm
 
 # Register your models here.
@@ -13,8 +13,10 @@ class CustomUserAdmin(UserAdmin):
     form = UserChangeForm
     model = User
 
+class TestCaseInline(admin.StackedInline):
+    model = TestCase
+    extra = 3
+
 @admin.register(Dataset)
 class DatasetAdmin(admin.ModelAdmin):
-    pass
-
-#admin.site.register(User, CustomUserAdmin)
+    inlines = [ TestCaseInline ]
